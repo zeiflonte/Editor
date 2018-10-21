@@ -1,0 +1,17 @@
+E:\Study\MPP\Editor\EditorWPF\bin\Debug\EditorWPF.exe.config
+E:\Study\MPP\Editor\EditorWPF\bin\Debug\EditorWPF.exe
+E:\Study\MPP\Editor\EditorWPF\bin\Debug\EditorWPF.pdb
+E:\Study\MPP\Editor\EditorWPF\obj\Debug\EditorWPF.csprojAssemblyReference.cache
+E:\Study\MPP\Editor\EditorWPF\obj\Debug\MainWindow.g.cs
+E:\Study\MPP\Editor\EditorWPF\obj\Debug\App.g.cs
+E:\Study\MPP\Editor\EditorWPF\obj\Debug\EditorWPF_MarkupCompile.cache
+E:\Study\MPP\Editor\EditorWPF\obj\Debug\EditorWPF_MarkupCompile.lref
+E:\Study\MPP\Editor\EditorWPF\obj\Debug\MainWindow.baml
+E:\Study\MPP\Editor\EditorWPF\obj\Debug\EditorWPF.g.resources
+E:\Study\MPP\Editor\EditorWPF\obj\Debug\EditorWPF.Properties.Resources.resources
+E:\Study\MPP\Editor\EditorWPF\obj\Debug\EditorWPF.csproj.GenerateResource.cache
+E:\Study\MPP\Editor\EditorWPF\obj\Debug\EditorWPF.csproj.CoreCompileInputs.cache
+E:\Study\MPP\Editor\EditorWPF\obj\Debug\EditorWPF.exe
+E:\Study\MPP\Editor\EditorWPF\obj\Debug\EditorWPF.pdb
+E:\Study\MPP\Editor\EditorWPF\obj\Debug\Parameter.g.cs
+E:\Study\MPP\Editor\EditorWPF\obj\Debug\Parameter.baml

@@ -5,8 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EditorWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Editor" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="91*"/>
+            <ColumnDefinition Width="305*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image x:Name="image" HorizontalAlignment="Left" Height="386" Margin="10,23,0,0" VerticalAlignment="Top" Width="772" Grid.ColumnSpan="2"/>
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2">
+            <MenuItem x:Name="miFile" Header="File">
+                <MenuItem x:Name="miOpen" Header="Open" Click="miOpen_Click"/>
+                <MenuItem x:Name="miSave" Header="Save" Click="miSave_Click"/>
+                <MenuItem x:Name="miSaveAs" Header="Save As..." Click="miSaveAs_Click"/>
+            </MenuItem>
+            <MenuItem Header="Tools">
+                <MenuItem x:Name="miBrush" Header="Brush">
+                    <MenuItem x:Name="miRectangle" Header="Rectangle"/>
+                    <MenuItem x:Name="miEllipse" Header="Ellipse"/>
+                </MenuItem>
+                <MenuItem x:Name="miColor" Header="Color">
+                    <MenuItem x:Name="miColorBlack" Header="Black"/>
+                    <MenuItem x:Name="miColorBlue" Header="Blue"/>
+                    <MenuItem x:Name="miColorGreen" Header="Green"/>
+                    <MenuItem x:Name="miColorRed" Header="Red"/>
+                </MenuItem>
+                <MenuItem x:Name="miRotate" Header="Rotate">
+                    <MenuItem x:Name="miRotateLeft" Header="Rotate left"/>
+                    <MenuItem x:Name="miRotateRight" Header="Rotate right"/>
+                    <MenuItem x:Name="miRotate180" Header="Rotate 180"/>
+                    <MenuItem x:Name="miFlipVertical" Header="Flip vertical"/>
+                    <MenuItem x:Name="miFlipHorizontal" Header="Flip horizontal"/>
+                </MenuItem>
+                <MenuItem x:Name="miContrast" Header="Contrast ratio"/>
+                <MenuItem x:Name="miBrightness" Header="Brightness"/>
+                <MenuItem x:Name="miColorBalance" Header="Color balance">
+                    <MenuItem x:Name="miColorBalanceRed" Header="Red"/>
+                    <MenuItem x:Name="miColorBalanceGreen" Header="Green"/>
+                    <MenuItem x:Name="miColorBalanceBlue" Header="Blue"/>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+
     </Grid>
 </Window>
