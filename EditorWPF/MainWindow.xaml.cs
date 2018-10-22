@@ -49,6 +49,7 @@ namespace EditorWPF
 
         public void UpdateImage(WriteableBitmap bitmap)
         {
+            this.bitmap = bitmap;
             image.Source = bitmap;
         }
 
@@ -147,6 +148,42 @@ namespace EditorWPF
             if (bitmap != null)
             {
                 Parameter parameter = new Parameter(new Filters.Brightness(bitmap, this));
+                parameter.ShowDialog();
+            }
+        }
+
+        private void miContrast_Click(object sender, RoutedEventArgs e)
+        {
+            if (bitmap != null)
+            {
+                Parameter parameter = new Parameter(new Filters.Contrast(bitmap, this));
+                parameter.ShowDialog();
+            }
+        }
+
+        private void miColorBalanceRed_Click(object sender, RoutedEventArgs e)
+        {
+            if (bitmap != null)
+            {
+                Parameter parameter = new Parameter(new Filters.ColorBalance.RedBalance(bitmap, this));
+                parameter.ShowDialog();
+            }
+        }
+
+        private void miColorBalanceGreen_Click(object sender, RoutedEventArgs e)
+        {
+            if (bitmap != null)
+            {
+                Parameter parameter = new Parameter(new Filters.ColorBalance.GreenBalance(bitmap, this));
+                parameter.ShowDialog();
+            }
+        }
+
+        private void miColorBalanceBlue_Click(object sender, RoutedEventArgs e)
+        {
+            if (bitmap != null)
+            {
+                Parameter parameter = new Parameter(new Filters.ColorBalance.BlueBalance(bitmap, this));
                 parameter.ShowDialog();
             }
         }

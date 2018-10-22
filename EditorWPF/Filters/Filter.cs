@@ -28,7 +28,6 @@ namespace EditorWPF.Filters
             // percentage of a parameter value
             int N = (int)Math.Round((100 / length) * pos);
 
-
             // load an original image
             bitmap = new WriteableBitmap(bitmapSaved);
 
@@ -60,14 +59,14 @@ namespace EditorWPF.Filters
 
         public void Save()
         {
-            //ownerForm.UpdateImage(bitmap);
+            ownerForm.UpdateImage(bitmap);
         }
 
         public void Restore()
         {
             // reset an image while closing the window
-            WriteableBitmap image = new WriteableBitmap(bitmapSaved);
-            //ownerForm.UpdateImage(bitmap);
+            WriteableBitmap bitmap = new WriteableBitmap(bitmapSaved);
+            ownerForm.UpdateImage(bitmap);
         }
 
         public abstract int ComputePixelColor(int colorData, int N);

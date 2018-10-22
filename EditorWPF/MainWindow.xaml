@@ -37,12 +37,12 @@
                     <MenuItem x:Name="miFlipVertical" Header="Flip vertical"/>
                     <MenuItem x:Name="miFlipHorizontal" Header="Flip horizontal"/>
                 </MenuItem>
-                <MenuItem x:Name="miContrast" Header="Contrast ratio"/>
+                <MenuItem x:Name="miContrast" Header="Contrast ratio" Click="miContrast_Click"/>
                 <MenuItem x:Name="miBrightness" Header="Brightness" Click="miBrightness_Click"/>
                 <MenuItem x:Name="miColorBalance" Header="Color balance">
-                    <MenuItem x:Name="miColorBalanceRed" Header="Red"/>
-                    <MenuItem x:Name="miColorBalanceGreen" Header="Green"/>
-                    <MenuItem x:Name="miColorBalanceBlue" Header="Blue"/>
+                    <MenuItem x:Name="miColorBalanceRed" Header="Red" Click="miColorBalanceRed_Click"/>
+                    <MenuItem x:Name="miColorBalanceGreen" Header="Green" Click="miColorBalanceGreen_Click"/>
+                    <MenuItem x:Name="miColorBalanceBlue" Header="Blue" Click="miColorBalanceBlue_Click"/>
                 </MenuItem>
             </MenuItem>
         </Menu>
