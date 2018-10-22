@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EditorWPF"
         mc:Ignorable="d"
-        Title="Parameter" Height="200" Width="300">
+        Title="Parameter" Height="200" Width="300" Closing="Window_Closing">
     <Grid>
-        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Height="35" Width="272"/>
-        <Button x:Name="btnApply" Content="Apply" HorizontalAlignment="Left" Margin="110,113,0,0" VerticalAlignment="Top" Width="75"/>
+        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Height="35" Width="272" ValueChanged="slider_ValueChanged" Minimum="-10"/>
+        <Button x:Name="btnApply" Content="Apply" HorizontalAlignment="Left" Margin="110,113,0,0" VerticalAlignment="Top" Width="75" Click="btnApply_Click"/>
 
     </Grid>
 </Window>

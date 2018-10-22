@@ -27,7 +27,7 @@ namespace EditorWPF
             InitializeComponent();
         }
 
-        private BitmapImage bitmap;
+        private WriteableBitmap bitmap;
         private string nameOfImage;
 
         void ResizeWindow()
@@ -47,6 +47,11 @@ namespace EditorWPF
             //image.Width = bitmap.Width;
         }
 
+        public void UpdateImage(WriteableBitmap bitmap)
+        {
+            image.Source = bitmap;
+        }
+
         private void miOpen_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openDialog = new OpenFileDialog
@@ -60,12 +65,13 @@ namespace EditorWPF
                 {
                     nameOfImage = openDialog.FileName;
 
-                    bitmap = new BitmapImage();
-
                     // initialize and fill the bitmap
-                    bitmap.BeginInit();
-                    bitmap.UriSource = new Uri(nameOfImage);
-                    bitmap.EndInit();
+                    BitmapImage bitmapSource = new BitmapImage();
+                    bitmapSource.BeginInit();
+                    bitmapSource.UriSource = new Uri(nameOfImage);
+                    bitmapSource.EndInit();
+
+                    bitmap = new WriteableBitmap(bitmapSource);
 
                     this.image.Source = bitmap;
 
@@ -133,6 +139,15 @@ namespace EditorWPF
                         MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
+            }
+        }
+
+        private void miBrightness_Click(object sender, RoutedEventArgs e)
+        {
+            if (bitmap != null)
+            {
+                Parameter parameter = new Parameter(new Filters.Brightness(bitmap, this));
+                parameter.ShowDialog();
             }
         }
     }
