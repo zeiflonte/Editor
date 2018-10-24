@@ -15,3 +15,7 @@ E:\Study\MPP\Editor\EditorWPF\obj\Debug\EditorWPF.exe
 E:\Study\MPP\Editor\EditorWPF\obj\Debug\EditorWPF.pdb
 E:\Study\MPP\Editor\EditorWPF\obj\Debug\Parameter.g.cs
 E:\Study\MPP\Editor\EditorWPF\obj\Debug\Parameter.baml
+E:\Study\MPP\Editor\EditorWPF\bin\Debug\WriteableBitmapEx.Wpf.dll
+E:\Study\MPP\Editor\EditorWPF\bin\Debug\WriteableBitmapEx.Wpf.pdb
+E:\Study\MPP\Editor\EditorWPF\bin\Debug\WriteableBitmapEx.Wpf.xml
+E:\Study\MPP\Editor\EditorWPF\obj\Debug\EditorWPF.csproj.CopyComplete

@@ -29,7 +29,7 @@ namespace EditorWPF
 
         private WriteableBitmap bitmap;
         private string nameOfImage;
-
+        
         void ResizeWindow()
         {
             // set margins
@@ -43,8 +43,8 @@ namespace EditorWPF
 
         void ResizeImage()
         {
-            //image.Height = bitmap.Height;
-            //image.Width = bitmap.Width;
+            image.Height = bitmap.Height;
+            image.Width = bitmap.Width;
         }
 
         public void UpdateImage(WriteableBitmap bitmap)
@@ -76,10 +76,11 @@ namespace EditorWPF
 
                     this.image.Source = bitmap;
 
-                    // make the window fit the image
-                    ResizeWindow();
                     // make the container fit the image
                     ResizeImage();
+                    // make the window fit the image
+                    ResizeWindow();
+                    
                 }
                 catch
                 {
@@ -185,6 +186,57 @@ namespace EditorWPF
             {
                 Parameter parameter = new Parameter(new Filters.ColorBalance.BlueBalance(bitmap, this));
                 parameter.ShowDialog();
+            }
+        }
+
+        private void miRotateLeft_Click(object sender, RoutedEventArgs e)
+        {
+            if (bitmap != null)
+            {
+                bitmap = bitmap.Rotate(270);
+                ResizeImage();
+                ResizeWindow();
+                image.Source = bitmap;
+            }
+        }
+
+        private void miRotateRight_Click(object sender, RoutedEventArgs e)
+        {
+            if (bitmap != null)
+            {
+                bitmap = bitmap.Rotate(90);
+                ResizeImage();
+                ResizeWindow();
+                image.Source = bitmap;
+            }
+        }
+
+        private void miRotate180_Click(object sender, RoutedEventArgs e)
+        {
+            if (bitmap != null)
+            {
+                bitmap = bitmap.Rotate(180);
+                image.Source = bitmap;
+            }
+        }
+
+        private void miFlipVertical_Click(object sender, RoutedEventArgs e)
+        {
+            if (bitmap != null)
+            {
+                // flip image
+                bitmap = bitmap.Flip(WriteableBitmapExtensions.FlipMode.Vertical);
+                image.Source = bitmap;
+            }
+        }
+
+        private void miFlipHorizontal_Click(object sender, RoutedEventArgs e)
+        {
+            if (bitmap != null)
+            {
+                // flip image
+                bitmap = bitmap.Flip(WriteableBitmapExtensions.FlipMode.Horizontal);
+                image.Source = bitmap;
             }
         }
     }
