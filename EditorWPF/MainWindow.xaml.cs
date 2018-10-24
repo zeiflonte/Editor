@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -28,13 +29,23 @@ namespace EditorWPF
             InitializeComponent();
         }
 
+        private Stack<WriteableBitmap> bitmaps = new Stack<WriteableBitmap>();
+
         private WriteableBitmap bitmap;
         private string nameOfImage;
 
-        //Pen pen = new Pen(Color.FromRgb(255, 255, 255), 3);
-        Color color = Colors.Black;
-        Factory factory = null;
-        Shapes.Shape shape = null;
+        private Color color = Colors.Black;
+        private Factory factory = null;
+        private Shapes.Shape shape = null;
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (bitmaps.Count > 0)
+            {
+                WriteableBitmap bitmap = bitmaps.Pop();
+                RestoreImage(bitmap);
+            }
+        }
 
         void ResizeWindow()
         {
@@ -53,10 +64,29 @@ namespace EditorWPF
             image.Width = bitmap.Width;
         }
 
+        public void PreviewImage(WriteableBitmap bitmap)
+        {
+            this.bitmap = bitmap;
+            image.Source = bitmap;
+        }
+
         public void UpdateImage(WriteableBitmap bitmap)
         {
             this.bitmap = bitmap;
             image.Source = bitmap;
+        }
+
+        public void SaveOld(WriteableBitmap bitmap)
+        {
+            bitmaps.Push(this.bitmap); // save old value
+        }
+
+        public void RestoreImage(WriteableBitmap bitmap)
+        {
+            this.bitmap = bitmap;
+            image.Source = bitmap;
+            ResizeImage();
+            ResizeWindow();
         }
 
         private void miOpen_Click(object sender, RoutedEventArgs e)
@@ -199,10 +229,11 @@ namespace EditorWPF
         {
             if (bitmap != null)
             {
+                SaveOld(bitmap);
                 bitmap = bitmap.Rotate(270);
                 ResizeImage();
                 ResizeWindow();
-                image.Source = bitmap;
+                UpdateImage(bitmap);
             }
         }
 
@@ -210,19 +241,21 @@ namespace EditorWPF
         {
             if (bitmap != null)
             {
+                SaveOld(bitmap);
                 bitmap = bitmap.Rotate(90);
                 ResizeImage();
                 ResizeWindow();
-                image.Source = bitmap;
+                UpdateImage(bitmap);
             }
         }
 
         private void miRotate180_Click(object sender, RoutedEventArgs e)
         {
-            if (bitmap != null)
+            if (this.bitmap != null)
             {
-                bitmap = bitmap.Rotate(180);
-                image.Source = bitmap;
+                SaveOld(this.bitmap);
+                WriteableBitmap bitmap = this.bitmap.Rotate(180);
+                UpdateImage(bitmap);
             }
         }
 
@@ -231,8 +264,9 @@ namespace EditorWPF
             if (bitmap != null)
             {
                 // flip image
+                SaveOld(bitmap);
                 bitmap = bitmap.Flip(WriteableBitmapExtensions.FlipMode.Vertical);
-                image.Source = bitmap;
+                UpdateImage(bitmap);
             }
         }
 
@@ -241,8 +275,9 @@ namespace EditorWPF
             if (bitmap != null)
             {
                 // flip image
+                SaveOld(bitmap);
                 bitmap = bitmap.Flip(WriteableBitmapExtensions.FlipMode.Horizontal);
-                image.Source = bitmap;
+                UpdateImage(bitmap);
             }
         }
 
@@ -261,6 +296,8 @@ namespace EditorWPF
         {
             if (shape != null)
             {
+                //SaveOld(bitmap);
+
                 Point p = e.GetPosition(image);
                 shape.X2 = (int)Math.Round(p.X);
                 shape.Y2 = (int)Math.Round(p.Y);
@@ -308,6 +345,6 @@ namespace EditorWPF
         private void miColorRed_Click(object sender, RoutedEventArgs e)
         {
             color = Colors.Red;
-        }
+        }  
     }
 }

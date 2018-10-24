@@ -17,18 +17,21 @@
                 <MenuItem x:Name="miSave" Header="Save" Click="miSave_Click"/>
                 <MenuItem x:Name="miSaveAs" Header="Save As..." Click="miSaveAs_Click"/>
             </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Undo" Click="MenuItem_Click"/>
+            </MenuItem>
             <MenuItem Header="Tools">
                 <MenuItem x:Name="miBrush" Header="Brush">
                     <MenuItem x:Name="miRectangle" Header="Rectangle" Click="miRectangle_Click"/>
                     <MenuItem x:Name="miEllipse" Header="Ellipse" Click="miEllipse_Click"/>
                 </MenuItem>
                 <MenuItem x:Name="miColor" Header="Color">
-                    <MenuItem x:Name="miColorBlack" Header="Black"/>
-                    <MenuItem x:Name="miColorBlue" Header="Blue"/>
-                    <MenuItem x:Name="miColorGreen" Header="Green"/>
-                    <MenuItem x:Name="miColorRed" Header="Red"/>
+                    <MenuItem x:Name="miColorBlack" Header="Black" Click="miColorBlack_Click"/>
+                    <MenuItem x:Name="miColorBlue" Header="Blue" Click="miColorBlue_Click"/>
+                    <MenuItem x:Name="miColorGreen" Header="Green" Click="miColorGreen_Click"/>
+                    <MenuItem x:Name="miColorRed" Header="Red" Click="miColorRed_Click"/>
                 </MenuItem>
-                <MenuItem x:Name="miRotate" Header="Rotate">
+                <MenuItem x:Name="miRotate" Header="Rotate" Visibility="Collapsed">
                     <MenuItem x:Name="miRotateLeft" Header="Rotate left" Click="miRotateLeft_Click"/>
                     <MenuItem x:Name="miRotateRight" Header="Rotate right" Click="miRotateRight_Click"/>
                     <MenuItem x:Name="miRotate180" Header="Rotate 180" Click="miRotate180_Click"/>

@@ -52,13 +52,14 @@ namespace EditorWPF.Filters
                     }
                 }
 
-            ownerForm.UpdateImage(bitmap);
+            ownerForm.PreviewImage(bitmap);
 
             return bitmap;
         }
 
         public void Save()
         {
+            ownerForm.SaveOld(bitmapSaved);
             ownerForm.UpdateImage(bitmap);
         }
 
