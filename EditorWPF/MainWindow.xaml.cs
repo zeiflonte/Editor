@@ -289,5 +289,25 @@ namespace EditorWPF
                 factory = new FactoryEllipse();
             }
         }
+
+        private void miColorBlack_Click(object sender, RoutedEventArgs e)
+        {
+            color = Colors.Black;
+        }
+
+        private void miColorBlue_Click(object sender, RoutedEventArgs e)
+        {
+            color = Colors.Blue;
+        }
+
+        private void miColorGreen_Click(object sender, RoutedEventArgs e)
+        {
+            color = Colors.Green;
+        }
+
+        private void miColorRed_Click(object sender, RoutedEventArgs e)
+        {
+            color = Colors.Red;
+        }
     }
 }
