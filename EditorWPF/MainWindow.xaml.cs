@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using EditorWPF.Shapes;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -29,7 +30,12 @@ namespace EditorWPF
 
         private WriteableBitmap bitmap;
         private string nameOfImage;
-        
+
+        //Pen pen = new Pen(Color.FromRgb(255, 255, 255), 3);
+        Color color = Colors.Black;
+        Factory factory = null;
+        Shapes.Shape shape = null;
+
         void ResizeWindow()
         {
             // set margins
@@ -237,6 +243,50 @@ namespace EditorWPF
                 // flip image
                 bitmap = bitmap.Flip(WriteableBitmapExtensions.FlipMode.Horizontal);
                 image.Source = bitmap;
+            }
+        }
+
+        private void image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (factory != null)
+            {
+                shape = factory.Create(bitmap, color);
+                Point p = e.GetPosition(image);
+                shape.X1 = (int)Math.Round(p.X);
+                shape.Y1 = (int)Math.Round(p.Y);
+            }
+        }
+
+        private void image_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (shape != null)
+            {
+                Point p = e.GetPosition(image);
+                shape.X2 = (int)Math.Round(p.X);
+                shape.Y2 = (int)Math.Round(p.Y);
+
+                shape.AdjustCoordinates();
+
+                shape.Draw();
+                UpdateImage(bitmap);
+
+                shape = null;
+            }
+        }
+
+        private void miRectangle_Click(object sender, RoutedEventArgs e)
+        {
+            if (bitmap != null)
+            {
+                factory = new FactoryRectangle();
+            }
+        }
+
+        private void miEllipse_Click(object sender, RoutedEventArgs e)
+        {
+            if (bitmap != null)
+            {
+                factory = new FactoryEllipse();
             }
         }
     }

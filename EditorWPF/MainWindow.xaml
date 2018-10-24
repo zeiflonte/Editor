@@ -19,8 +19,8 @@
             </MenuItem>
             <MenuItem Header="Tools">
                 <MenuItem x:Name="miBrush" Header="Brush">
-                    <MenuItem x:Name="miRectangle" Header="Rectangle"/>
-                    <MenuItem x:Name="miEllipse" Header="Ellipse"/>
+                    <MenuItem x:Name="miRectangle" Header="Rectangle" Click="miRectangle_Click"/>
+                    <MenuItem x:Name="miEllipse" Header="Ellipse" Click="miEllipse_Click"/>
                 </MenuItem>
                 <MenuItem x:Name="miColor" Header="Color">
                     <MenuItem x:Name="miColorBlack" Header="Black"/>
@@ -44,7 +44,7 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="386" VerticalAlignment="Top" Width="772" Grid.ColumnSpan="2" Margin="10,23,0,0"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="386" VerticalAlignment="Top" Width="772" Grid.ColumnSpan="2" Margin="10,23,0,0" MouseLeftButtonUp="image_MouseLeftButtonUp" MouseLeftButtonDown="image_MouseLeftButtonDown"/>
 
     </Grid>
 </Window>
